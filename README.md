@@ -2,7 +2,7 @@
 ## Before running the project do next steps in Terminal:
 - `npm i readline-sync` ;
 - `npm i colors` ;
-- In "package.json" file in {} on type top : `"type":"module"`
+- In "package.json" file in {} type on top : `"type":"module"`
 
 ## What is in the project?
 This project is about Mobile Banking App. Here user has next options:
