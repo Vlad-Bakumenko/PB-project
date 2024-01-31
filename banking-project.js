@@ -132,6 +132,7 @@ function createAccount() {
     } while (account.email === email);
   }
 
+  console.clear();
   fullName = readlineSync.question(
     'Please enter your full name.\nFull name should have next format "(Surname - at least 2 characters) (Name - at least 2 characters)":\n'
   );
@@ -144,6 +145,7 @@ function createAccount() {
     }
   } while (!isValidFullName(fullName));
 
+  console.clear();
   iban = readlineSync.question(
     "Please enter your IBAN. Correct format is FGB(4 digits):\n"
   );
@@ -162,10 +164,11 @@ function createAccount() {
   do {
     isIbanExist = accounts.find(item => item.iban === iban);
     if (accounts.includes(isIbanExist)) {
-      iban = readlineSync.question("Sorry account with such IBAN already registered. Please try again")
+      iban = readlineSync.question("Sorry account with such IBAN already registered. Please try again:\n");
     }
   } while (accounts.includes(isIbanExist))
 
+  console.clear();
   password = readlineSync.question(
     "Please enter the password, that you received from our bank via post.\nRemember in your password should be 4-8 characters and no special characters:\n"
   );
@@ -178,6 +181,7 @@ function createAccount() {
     }
   } while (!isValidPassword(password));
 
+  console.clear();
   secretWord = readlineSync.question(
     "Please create your secret word.\nRemember your Secret Word should be 6 characters long and have no special characters:\n"
   );
@@ -431,7 +435,7 @@ const branches = {
     "Bahnhofsvorstadt 58, 40212",
     "Kasernenstraße 102, 40213",
   ],
-  frankfurtAmMain: [
+  leipzig: [
     "Leipziger Str. 43, 60487",
     "Berliner Str. 32, 10997",
     "Bayerischer Platz 15, 80997",
@@ -470,7 +474,7 @@ const atms = {
     "Medienhafenweg 890, 40221",
     "Rheinuferpromenade 432, 40213",
   ],
-  frankfurtAmMain: [
+  leipzig: [
     "Zeil 123, 60313",
     "Römerberg 567, 60311",
     "Sachsenhausenstraße 890, 60594",
@@ -499,7 +503,7 @@ function viewBranches(city) {
       isValidCity = true;
     } else {
       city = readlineSync.question(
-        "Incorrect input. Please choose from Berlin, Hamburg, Munich, Dusseldorf, Frankfurt Am Main and Hannover:\n"
+        "Incorrect input. Please choose from Berlin, Hamburg, Munich, Dusseldorf, Leipzig and Hannover:\n"
       );
     }
   } while (!isValidCity);
@@ -520,7 +524,7 @@ function viewATMs(cityAtm) {
       isValidCity = true;
     } else {
       cityAtm = readlineSync.question(
-        "Incorrect input. Please choose from Berlin, Hamburg, Munich, Dusseldorf, Frankfurt Am Main and Hannover:\n"
+        "Incorrect input. Please choose from Berlin, Hamburg, Munich, Dusseldorf, Leipzig and Hannover:\n"
       );
     }
   } while (!isValidCity);
@@ -738,14 +742,14 @@ while (true) {
     case 9:
       // View Branches
       let city = readlineSync.question(
-        "Our company has branches in Berlin, Hamburg, Munich, Dusseldorf, Frankfurt Am Main and Hannover.\nPlease enter the city in which you want to check the addresses of branches:\n"
+        "Our company has branches in Berlin, Hamburg, Munich, Dusseldorf, Leipzig and Hannover.\nPlease enter the city in which you want to check the addresses of branches:\n"
       );
       viewBranches(city);
       break;
     case 10:
       // View ATMs
       let cityAtm = readlineSync.question(
-        "Our company has ATMs in Berlin, Hamburg, Munich, Dusseldorf, Frankfurt Am Main and Hannover.\nPlease enter the city in which you want to check the addresses of ATMs:\n"
+        "Our company has ATMs in Berlin, Hamburg, Munich, Dusseldorf, Leipzig and Hannover.\nPlease enter the city in which you want to check the addresses of ATMs:\n"
       );
       viewATMs(cityAtm);
       break;
